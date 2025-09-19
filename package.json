@@ -7,7 +7,7 @@
     "demo": "npm-run-all --parallel \"demo:ts\" \"demo:rs\"",
     "build": "cd packages && pnpm -r --filter \"@voxelize/*\" --filter \"!@voxelize/core\" build && cd core && pnpm build",
     "demo:ts": "cd examples/client && pnpm demo",
-    "demo:rs": "cross-env RUST_BACKTRACE=1 cargo watch -w examples/server -w server -x \"run --release --example demo\"",
+    "demo:rs": "cross-env RUST_BACKTRACE=1 sh -c 'export RAYON_NUM_THREADS=${RAYON_NUM_THREADS:-4}; if command -v cargo-watch >/dev/null 2>&1; then cargo watch -w examples/server -w server -x \"run --release --example demo\"; else echo \"cargo-watch not found; running demo once without watch\"; cargo run --release --example demo; fi'",
     "test-dev": "vitest",
     "test": "vitest --run",
     "lint": "eslint --fix --ext js,ts,tsx .",

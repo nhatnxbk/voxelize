@@ -1,10 +1,15 @@
+use std::env;
+
 use log::info;
 use registry::setup_registry;
 use specs::{Component, NullStorage};
 use voxelize::{
     ChunkStage, FlatlandStage, LSystem, Server, Vec3, VoxelAccess, Voxelize, WorldConfig,
 };
-use worlds::{flat::setup_flat_world, terrain::setup_terrain_world, test::setup_test_world};
+use worlds::{
+    flat::setup_flat_world, minecraft::setup_minecraft_world, terrain::setup_terrain_world,
+    test::setup_test_world,
+};
 
 mod registry;
 mod worlds;
@@ -72,6 +77,13 @@ async fn main() -> std::io::Result<()> {
     server
         .add_world(setup_flat_world(&registry))
         .expect("Could not create flat world.");
+
+    if let Ok(world_dir) = env::var("VOXELIZE_MINECRAFT_WORLD") {
+        let world = setup_minecraft_world(&registry, &world_dir);
+        server
+            .add_world(world)
+            .expect("Could not create Minecraft import world.");
+    }
 
     server.set_action_handle("create_world", |value, server| {
         info!("World creating...");

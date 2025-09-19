@@ -30,6 +30,22 @@ export default {
         __dirname,
         "../../packages/core/src/index.ts"
       ),
+      "@voxelize/physics-engine": path.resolve(
+        __dirname,
+        "../../packages/physics-engine/src/index.ts"
+      ),
+      "@voxelize/aabb": path.resolve(
+        __dirname,
+        "../../packages/aabb/src/index.ts"
+      ),
+      "@voxelize/raycast": path.resolve(
+        __dirname,
+        "../../packages/raycast/src/index.ts"
+      ),
+      "@voxelize/protocol": path.resolve(
+        __dirname,
+        "../../packages/protocol/src/index.ts"
+      ),
     },
   },
 };

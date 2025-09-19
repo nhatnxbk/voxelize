@@ -1,6 +1,7 @@
 mod lights;
 mod lsystem;
 mod mesher;
+mod minecraft;
 mod noise;
 mod pathfinding;
 mod pipeline;
@@ -12,6 +13,7 @@ pub use self::noise::*;
 pub use lights::{LightNode, Lights};
 pub use lsystem::*;
 pub use mesher::Mesher;
+pub use minecraft::*;
 pub use pathfinding::*;
 pub use pipeline::*;
 pub use spline::SplineMap;

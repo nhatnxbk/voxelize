@@ -86,7 +86,7 @@ impl MetadataComp {
         // Generate and cache the JSON string
         let json_str = self.to_string();
         self.cached_json = Some(json_str.clone());
-        
+
         (json_str, updated)
     }
 

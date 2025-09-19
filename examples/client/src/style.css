@@ -134,3 +134,70 @@ body {
 #chat-history p {
   color: #eee;
 }
+
+.rhythm-overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 12px 16px;
+  background: rgba(24, 29, 49, 0.82);
+  border: 1px solid rgba(231, 221, 196, 0.25);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 320px;
+  z-index: 2000000;
+  color: #eee;
+}
+
+.rhythm-overlay h2 {
+  font-size: 18px;
+  color: #f5f5f5;
+}
+
+.rhythm-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.rhythm-row input,
+.rhythm-row select {
+  padding: 4px;
+  font-size: 12px;
+  background: rgba(30, 38, 60, 0.7);
+  border: 1px solid rgba(231, 221, 196, 0.25);
+  color: #f5f5f5;
+}
+
+.rhythm-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.rhythm-actions button {
+  flex: 1;
+  padding: 6px 8px;
+  background: rgba(103, 137, 131, 0.8);
+  border: 0;
+  color: #111;
+  cursor: pointer;
+}
+
+.rhythm-actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.rhythm-status,
+.rhythm-score {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.rhythm-hint {
+  font-size: 11px;
+  opacity: 0.8;
+}

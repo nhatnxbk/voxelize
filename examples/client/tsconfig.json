@@ -13,7 +13,19 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@voxelize/core": ["../../packages/core/src/index.ts"],
+      "@voxelize/core/*": ["../../packages/core/src/*"],
+      "@voxelize/physics-engine": ["../../packages/physics-engine/src/index.ts"],
+      "@voxelize/physics-engine/*": ["../../packages/physics-engine/src/*"],
+      "@voxelize/aabb": ["../../packages/aabb/src/index.ts"],
+      "@voxelize/aabb/*": ["../../packages/aabb/src/*"],
+      "@voxelize/raycast": ["../../packages/raycast/src/index.ts"],
+      "@voxelize/raycast/*": ["../../packages/raycast/src/*"],
+      "@voxelize/protocol": ["../../packages/protocol/src/index.ts"],
+      "@voxelize/protocol/*": ["../../packages/protocol/src/*"]
+    }
   },
   "include": ["src"]
 }

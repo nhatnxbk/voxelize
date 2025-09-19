@@ -1,5 +1,5 @@
-use specs::{ReadStorage, System, WriteStorage};
 use crate::{MetadataComp, PathComp};
+use specs::{ReadStorage, System, WriteStorage};
 
 pub struct PathMetadataSystem;
 

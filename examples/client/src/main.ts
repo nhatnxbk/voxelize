@@ -16,6 +16,7 @@ const world = new VOXELIZE.World({
 });
 
 import { setupWorld } from "./world";
+import { RhythmManager } from "./rhythm";
 // actual world setup code handled later after network and world are initialized
 
 /* -------------------------------------------------------------------------- */
@@ -131,6 +132,12 @@ controls.connect(inputs, "in-game");
 
 inputs.bind("KeyG", () => {controls.toggleGhostMode();}, "in-game");
 inputs.bind("KeyF", controls.toggleFly, "in-game");
+
+const rhythmManager = new RhythmManager({
+  world,
+  controls,
+  inputs,
+});
 
 // To add/remove blocks
 const voxelInteract = new VOXELIZE.VoxelInteract(controls.object, world, {
@@ -585,7 +592,7 @@ debug.registerDisplay("Concurrent WebWorkers", () => {
 const gui = new GUI();
 gui.domElement.style.top = "10px";
 
-inputs.bind("KeyJ", debug.toggle, "*");
+inputs.bind("KeyH", debug.toggle, "*");
 
 // debug.registerDisplay("Active Voxels", async () => {
 //   const data = await fetch(`${BACKEND_SERVER}info`);
@@ -924,6 +931,7 @@ bar.onFocusChange((_, current) => {
 /*                               MAIN GAME LOOPS                              */
 /* -------------------------------------------------------------------------- */
 const update = () => {
+  rhythmManager.update(0);
   if (!world.isInitialized) return;
 
   perspective.update();
